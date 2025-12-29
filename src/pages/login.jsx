@@ -42,7 +42,7 @@ function Login() {
               onChange={(e) => setRole(e.target.value)}
               style={styles.select}
             >
-              <option value="client">Client</option>
+              <option value="utilisateur">Utilisateur</option>
               <option value="admin">Administrateur</option>
             </select>
           </div>
@@ -53,7 +53,7 @@ function Login() {
         </form>
         
         <p style={styles.footerText}>
-          Accès invité : n'importe quel email fonctionne pour la démo.
+         
         </p>
       </div>
     </div>
