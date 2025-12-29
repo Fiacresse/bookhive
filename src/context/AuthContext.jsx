@@ -1,13 +1,20 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); //pas connecté
+  const [user, setUser] = useState(null);
 
-  const login = (userData) => {
-    setUser(userData); // On simule la connexion
-    localStorage.setItem('user', JSON.stringify(userData)); // Persistance demandée
+  // Au chargement, on vérifie si un utilisateur est déjà dans le localStorage
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) setUser(JSON.parse(savedUser));
+  }, []);
+
+  const login = (email, role) => {
+    const userData = { email, role }; // role peut être 'admin' ou 'user'
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
   };
 
   const logout = () => {
