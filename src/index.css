@@ -1,0 +1,44 @@
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent: #f1c40f;
+  --danger: #e74c3c;
+  --success: #27ae60;
+  --light: #f8f9fa;
+  --dark: #2c3e50;
+  --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style des boutons chic */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.btn-primary { background: var(--secondary); color: white; }
+.btn-danger { background: var(--danger); color: white; }

@@ -1,10 +1,16 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { booksData } from '../data/books';
+import { useCart } from '../context/CartContext';
 
 function BookDetails() {
   const { id } = useParams(); // Récupère l'ID depuis l'URL
   const navigate = useNavigate();
-
+  const { dispatch } = useCart();
+  
+  const handleAddToCart = () => {
+    dispatch({ type: 'ADD_TO_CART', payload: book });
+    alert("Livre ajouté au panier !");
+  };
   // On cherche le livre correspondant à l'ID
   const book = booksData.find(b => b.id === parseInt(id));
 
@@ -27,7 +33,7 @@ function BookDetails() {
           <hr />
           <h3>Description</h3>
           <p>{book.description}</p>
-          <button style={{ padding: '10px 20px', background: '#27ae60', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+          <button onClick={handleAddToCart} style={{ padding: '10px 20px', background: '#27ae60', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
             Ajouter au panier
           </button>
         </div>
