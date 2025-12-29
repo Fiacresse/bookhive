@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import BookDetails from './pages/BookDetails';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/book/:id" element={<BookDetails />} />
         <Route path="*" element={<div><h1>404 - Page non trouvée</h1></div>} />
       </Routes>
     </Router>
