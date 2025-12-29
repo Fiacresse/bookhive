@@ -1,11 +1,20 @@
-import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div>
-      <h1>Le projet BookHive est lancé </h1>
-      <p>Hello World.</p>
-    </div>
+    <Router>
+      <header style={{ padding: '1rem', background: '#2c3e50', color: 'white' }}>
+        <nav>
+          <strong style={{ fontSize: '1.5rem' }}>BookHive 📚</strong>
+        </nav>
+      </header>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<div><h1>404 - Page non trouvée</h1></div>} />
+      </Routes>
+    </Router>
   );
 }
 

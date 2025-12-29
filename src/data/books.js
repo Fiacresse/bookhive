@@ -1,17 +1,17 @@
-// src/data/books.js
 export const booksData = [
   {
     id: 1,
-    title: "L'Étranger",
-    author: "Albert Camus",
-    isbn: "9782070360024",
-    category: "Classique",
+    title: "Le Petit Prince",
+    author: "Antoine de Saint-Exupéry",
+    isbn: "978-2070612758",
+    category: "Jeunesse",
     language: "Français",
-    price: 12.50,
-    rating: 4.5,
-    description: "Une histoire sur l'absurdité de la condition humaine.",
-    coverImage: "https://via.placeholder.com/150",
-    stock: 5
+    price: 15,
+    rating: 4.8,
+    reviewCount: 120,
+    description: "Un pilote s'écrase dans le désert et rencontre un petit prince...",
+    coverImage: "https://picsum.photos/seed/book1/200/300", // Image aléatoire
+    stock: 10
   },
-  // Répète ce modèle pour arriver à 50 livres plus tard
+  // Ajoute d'autres objets similaires ici pour atteindre 50 plus tard
 ];
