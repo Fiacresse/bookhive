@@ -27,46 +27,28 @@ function Header() {
       
       <nav style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
         <Link to="/cart" style={{ color: 'white', textDecoration: 'none' }}>
-          Panier ({cart.length})
+          Panier ({cart?.length || 0})
         </Link>
         {user?.role === 'admin' && (
-          <Link to="/admin" style={{ 
-            color: '#f1c40f', 
-            textDecoration: 'none', 
-            fontWeight: 'bold',
-            border: '1px solid #f1c40f',
-            padding: '5px 10px',
-            borderRadius: '4px'
-          }}>
+          <Link to="/admin" style={{ color: '#f1c40f', textDecoration: 'none', fontWeight: 'bold' }}>
             Panel Admin
           </Link>
         )}
         
         {user ? (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontSize: '0.9rem', color: '#bdc3c7' }}>{user.email}</span>
+            <span style={{ fontSize: '0.9rem', color: '#bdc3c7' }}>
+              {user.email || 'Utilisateur'}
+            </span>
             <button 
               onClick={logout} 
-              style={{ 
-                background: '#e74c3c', 
-                color: 'white', 
-                border: 'none', 
-                padding: '8px 15px', 
-                borderRadius: '4px', 
-                cursor: 'pointer' 
-              }}
+              style={{ background: '#e74c3c', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', cursor: 'pointer' }}
             >
               Déconnexion
             </button>
           </div>
         ) : (
-          <Link to="/login" style={{ 
-            color: 'white', 
-            textDecoration: 'none', 
-            background: '#3498db', 
-            padding: '8px 15px', 
-            borderRadius: '4px' 
-          }}>
+          <Link to="/login" style={{ color: 'white', textDecoration: 'none', background: '#3498db', padding: '8px 15px', borderRadius: '4px' }}>
             Connexion
           </Link>
         )}
@@ -90,7 +72,7 @@ function App() {
         </Routes>
       </main>
       <footer style={{ textAlign: 'center', padding: '20px', background: '#f8f9fa', marginTop: '50px' }}>
-        <p>&copy; 2025 BookHive - Projet Évaluation React</p>
+        <p>&copy; 2025 BookHive</p>
       </footer>
     </Router>
   );

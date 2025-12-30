@@ -11,8 +11,11 @@ export const AuthProvider = ({ children }) => {
     if (savedUser) setUser(JSON.parse(savedUser));
   }, []);
 
-  const login = (email, role) => {
-    const userData = { email, role }; // role peut être 'admin' ou 'user'
+  // Accept either login(email, role) OR login({ email, role })
+  const login = (emailOrUser, role) => {
+    const userData = typeof emailOrUser === 'object'
+      ? emailOrUser
+      : { email: emailOrUser, role };
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData));
   };
